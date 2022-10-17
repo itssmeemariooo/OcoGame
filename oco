@@ -1,0 +1,111 @@
+  void setup(){
+    //fullScreen();
+    size(1920,1080);
+    
+  }
+    Aim_mouse mouse= new Aim_mouse(mouseX , mouseY , 50);
+  
+  
+  void draw(){
+    background(255);
+    mouse.atualiza();
+    mouse.Skin_mouse();
+    mouse.dispara();
+   
+  }
+  
+  
+  
+class Aim_mouse{
+     
+   float x , y, r;                                          
+     
+   Aim_mouse(float mousex , float mousey , float mouser){
+       x = mousex;
+       y = mousey;
+       r = mouser;
+     }
+   
+   void atualiza(){
+       x = mouseX;
+       y = mouseY + r*2;                                             // PARAMETROS DO AIM MOUSE
+       r = 20;
+     }
+   
+   void Skin_mouse(){
+    
+    noStroke();
+    
+    fill(180,120,70);
+    ellipse(x, y-r,r*2,r*2);
+   
+    fill(200,130,90);
+    ellipse(x,y,r*2,r*2);
+    
+    fill(200,130,90);
+    ellipse(x+r,y+r,r*2,r*2);                                           // PARAMETROS DA SKIN MOUSE
+    ellipse(x-r,y+r,r*2,r*2); 
+    
+    fill(0);
+    rectMode(CENTER);
+    rect(x,y-r*1.9,r/3,r/3);
+  }
+  
+  void dispara(){
+    
+    color meita;
+    float xmeita, ymeita;
+    float passomeitaX, passomeitaY;
+    
+    
+    //skin meita
+    
+    fill(200);
+    rectMode(CENTER);
+    rect(x,y-r*2.1,r/3,r/3);
+    
+    xmeita=x;
+    ymeita=y;
+    
+    // movimento
+    passomeitaX=random(-5,5);
+    passomeitaY=random(-10,-30);
+    
+    passomeitaX=passomeitaX++;
+    passomeitaY=passomeitaY++;
+    
+    xmeita=xmeita+passomeitaX;
+    ymeita=ymeita+passomeitaY;
+    rect(xmeita,ymeita-r*2.1,r/3,r/3);
+    
+    
+    
+   
+    
+    
+    
+    //desaparecer
+  
+  }
+}
+
+class jailson{
+  
+  float x, y, r;
+  
+  jailson(){
+    
+  }
+  
+  void skinJailson(){
+  
+    
+    
+    
+  }
+  
+  void randomSpawn(){
+  
+  }
+  
+}
